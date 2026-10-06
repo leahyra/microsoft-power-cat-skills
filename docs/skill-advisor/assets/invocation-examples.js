@@ -160,20 +160,144 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Requires a compatible installed host and plugin. Illustrative skill-name mention, not documented slash syntax. Source version discrepancy remains: SKILL.md 1.0.0; skill.yaml 0.1.0. No GA inference."
   },
   "skill-146": {
-    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/a0833db3ca5fd1014849fea1b627a9c2b63c27c1/commands/add-skill.md",
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/add-skill/SKILL.md",
     "skillName": "add-skill",
     "userInvocable": true,
     "natural": {
       "text": "Add an existing agent skill from my local files or the CAT gallery to my Copilot Studio workspace.",
       "provenance": "Illustrative intent",
-      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/a0833db3ca5fd1014849fea1b627a9c2b63c27c1/commands/add-skill.md"
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/add-skill/SKILL.md"
     },
     "direct": {
-      "text": "/add-skill",
-      "kind": "slash",
-      "provenance": "Repository example",
-      "url": "https://github.com/microsoft/copilot-studio-plugin/commit/a0833db3ca5fd1014849fea1b627a9c2b63c27c1"
+      "text": "Use add-skill to add an Agent Skill to my Copilot Studio agent.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/add-skill/SKILL.md"
     },
-    "note": "Plugin command, not a SKILL.md skill. Requires the installed Copilot Studio plugin; optional import requires a cloned CLI-agent workspace. This command does not publish."
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Agent Skill (SKILL.md). Moved upstream from commands/add-skill.md (a0833db3) to skills/add-skill/SKILL.md (4014ae68); same portal entry. Requires the installed Copilot Studio plugin and Node.js for its helper script; optional import requires a cloned agent workspace. It never pushes or publishes. Illustrative skill-name mention, not documented slash syntax."
+  }
+});
+
+// Approved Copilot Studio Plugin skills (5 Oct 2026), pinned to 4014ae68;
+// direct examples are illustrative skill-name mentions, not documented slash syntax.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-147": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/add-knowledge/SKILL.md",
+    "skillName": "add-knowledge",
+    "userInvocable": true,
+    "natural": {
+      "text": "Add our public product documentation website as a knowledge source to my cloned Copilot Studio agent.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/add-knowledge/SKILL.md"
+    },
+    "direct": {
+      "text": "Use add-knowledge to add our documentation website to my cloned Copilot Studio agent.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/add-knowledge/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and a locally cloned agent; it writes local files only, so push and publish separately. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-148": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/clone-agent/SKILL.md",
+    "skillName": "clone-agent",
+    "userInvocable": true,
+    "natural": {
+      "text": "Clone my Copilot Studio agent into a local folder so I can edit it.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/clone-agent/SKILL.md"
+    },
+    "direct": {
+      "text": "Use clone-agent to clone my Copilot Studio agent into a local folder.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/clone-agent/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. It never pushes, publishes or deletes a cloud agent. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-149": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/create-agent/SKILL.md",
+    "skillName": "create-agent",
+    "userInvocable": true,
+    "natural": {
+      "text": "Create a new Copilot Studio agent that answers HR policy questions.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/create-agent/SKILL.md"
+    },
+    "direct": {
+      "text": "Use create-agent to create a Copilot Studio agent that answers HR policy questions.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/create-agent/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. It never publishes; an explicit publish request is handed to publish-agent. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-150": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/delete-agent/SKILL.md",
+    "skillName": "delete-agent",
+    "userInvocable": true,
+    "natural": {
+      "text": "Permanently delete the Copilot Studio agent <agent name> from my environment.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/delete-agent/SKILL.md"
+    },
+    "direct": {
+      "text": "Use delete-agent to permanently delete the Copilot Studio agent <agent name>.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/delete-agent/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. DESTRUCTIVE and irreversible: it permanently deletes the cloud agent only after the skill's exact typed confirmation and cannot be undone. Local files are not deleted and any local workspace becomes stale. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-151": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/publish-agent/SKILL.md",
+    "skillName": "publish-agent",
+    "userInvocable": true,
+    "natural": {
+      "text": "Publish my Copilot Studio agent so its current draft goes live.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/publish-agent/SKILL.md"
+    },
+    "direct": {
+      "text": "Use publish-agent to publish my Copilot Studio agent.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/publish-agent/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. Publishing makes the current cloud draft live after confirmation. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-152": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/pull-agent/SKILL.md",
+    "skillName": "pull-agent",
+    "userInvocable": true,
+    "natural": {
+      "text": "Pull the latest remote changes into my local Copilot Studio agent workspace.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/pull-agent/SKILL.md"
+    },
+    "direct": {
+      "text": "Use pull-agent to pull the latest remote changes into my local agent workspace.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/pull-agent/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. It can merge remote changes into local files. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-153": {
+    "source": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/push-agent/SKILL.md",
+    "skillName": "push-agent",
+    "userInvocable": true,
+    "natural": {
+      "text": "Push my local Copilot Studio agent changes to the cloud draft without publishing.",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/push-agent/SKILL.md"
+    },
+    "direct": {
+      "text": "Use push-agent to push my local agent changes to the cloud draft.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/copilot-studio-plugin/blob/4014ae689d1228d86cb3aaab938b1e66f8e2e10d/skills/push-agent/SKILL.md"
+    },
+    "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. It updates draft content only; publish separately. Illustrative skill-name mention, not documented slash syntax."
   }
 });
