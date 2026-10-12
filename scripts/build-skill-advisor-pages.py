@@ -34,7 +34,7 @@ import zlib
 
 DEFAULT_URL = "https://microsoft.github.io/power-cat-skills/skill-advisor/"
 OUTPUT = Path(__file__).resolve().parent.parent / "docs" / "skill-advisor"
-INDEX_SHA256 = "d1424187255beeb4e58e1df5309e52cc827614c6e498687c4a9954412ce4f4f0"
+INDEX_SHA256 = "a62a38d541bc4205e9785235078d2fb477877b0bc17a914f40738c6b99e4470d"
 DOWNLOAD_NAMES = (
     "agent-skills cross-cutting dataverse governance mcp-tooling modernization "
     "power-apps power-automate power-cat power-pages"
@@ -58,7 +58,7 @@ PUBLIC_PATHS = frozenset(
     ".nojekyll 404.html apple-touch-icon.png favicon-32x32.png favicon.ico "
     "favicon.svg index.html manifest.json prototype-category-preview.png "
     "prototype-dark-preview.png prototype-downloads-preview.png "
-    "prototype-mobile-preview.png prototype-preview.png robots.txt sitemap.xml"
+    "prototype-mobile-preview.png prototype-preview.png robots.txt sitemap.xml sw.js"
     .split()
 ) | frozenset("assets/" + n for n in ASSETS) | frozenset(
     "assets/coe-avatars/" + n + ".svg" for n in AVATARS
