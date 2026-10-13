@@ -88,7 +88,7 @@
     "favicon-32x32.png": "8ecda49c7cfeab5af2dc663814b6445f6f762d45a51134fb06bf7cf7a2f42e0f",
     "favicon.ico": "34ee06d943089835774ddbf9dc672c672b1b02f1b5bafe1db0d69653837bf3f1",
     "favicon.svg": "0b38ada49a062a6381c769802e65671b0522644df1b67a5f706b5daf9b0fbbc0",
-    "index.html": "ecb35785976c5a18702d91e91b14dad0f0b10e3af72d2c06376ac2794b3fd120",
+    "index.html": "f982fa01cca46fe492606df71f5f7c833edcebd3da4f7779fdc4cfa8c6d41941",
     "manifest.json": "fbbb9849c5c8921de0a33e05684a5f1e1bb579943977c583948a238aa32185c6",
     "prototype-category-preview.png": "53f9b6190e208b45b69a2208aae6a6f635b9b26fb364e136cd86f3c4c196f5e3",
     "prototype-dark-preview.png": "26f795a55d7f8674f9c72785f4d1d5c6504ebf865a2c840f72bdaa510273b62c",
@@ -97,7 +97,7 @@
     "prototype-preview.png": "10a8a767900e7474c508602216748054ce0d6620688260b4d6c2642b27994be3",
     "robots.txt": "a4e172ebc01be9ff2b3b98db5e830a46ea1056b5685ae7470550f3575de5c667",
     "sitemap.xml": "a403e75201492a534c713d9bf90be4a951a7a17428da75c2d5727837cc0207bc",
-    "sw.js": "890393cb82095d05a8785ce2b67468c45d727dc89823d8e69ae88235e8c30558"
+    "sw.js": "d04a5c6eabdcecac062eb859c67502161cc5cf7c0bf3812f83a7fa0f85b6a968"
   },
   "limitations": [
     "Nested robots.txt is informational, not origin-level crawl policy.",
@@ -106,8 +106,8 @@
     "Meta CSP enforces only meta-supported directives; no frame-ancestors coverage."
   ],
   "mode": "github-pages",
-  "sourceDigestSHA256": "6782573ba854d48b12ab10325699da84ee60483fbf5157b464dbf90ba45f8669",
-  "sourceIndexSHA256": "7577ceb9a17a97886e57d5f1143328a08eaed7fd2d863ddc0fbe9476365f3eb2",
+  "sourceDigestSHA256": "fa27da9955cd903cb0d536156d457d9ad52f404110fdabb896fbcf6f951a6db4",
+  "sourceIndexSHA256": "824b533dfdf14b9f63b3ae227427a7f5ba4206507c8c94bd71a007d826282543",
   "transforms": {
     "excluded": [
       "staticwebapp.config.json"
