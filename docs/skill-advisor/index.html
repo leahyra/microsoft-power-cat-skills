@@ -237,6 +237,7 @@ body.rail-collapsed .brand-wordmark{opacity:0;max-width:0;margin-left:-9px}
 .nav-section-label:first-child{border-top:0;margin-top:0;padding-top:2px}
 body.rail-collapsed .nav-section-label{display:none}
 .nav button{min-height:40px;border:0;border-radius:.5rem;background:transparent;color:var(--cp-text);font-size:calc(12.5px * var(--cp-font-scale))!important;display:flex;align-items:center;gap:10px;padding:0 8px;text-align:left;width:100%;box-sizing:border-box}
+.nav [hidden],.nav button[hidden],.metro-egg[hidden]{display:none!important}
 .nav button:hover{background:var(--cp-surface-soft)}.nav button.active{background:var(--cp-accent-soft);color:var(--cp-accent);font-weight:800}
 .nav-icon{width:36px;height:36px;border:1px solid var(--cp-border);border-radius:8px;background:var(--cp-surface);display:grid;place-items:center;flex:0 0 36px;padding:0;box-sizing:border-box}.nav-icon img{display:block;width:20px;height:20px;object-fit:contain;object-position:center center;filter:none}html[data-theme="dark"] .nav-icon{background:var(--cp-surface-soft);border-color:var(--cp-border-strong)}html[data-theme="dark"] .nav-icon img{filter:drop-shadow(0 0 2px var(--cp-surface))}
 .rail-actions{margin-top:8px;border-top:1px solid var(--cp-border);padding-top:8px;display:grid;gap:5px;flex:0 0 auto}.rail-actions a{min-height:40px;border-radius:.5rem;background:var(--cp-surface-soft);padding:0 8px;font-size:calc(11px * var(--cp-font-scale));font-weight:700;display:flex;align-items:center;gap:10px;width:100%;box-sizing:border-box}.rail-actions img{width:36px;height:36px;flex:0 0 36px;object-fit:contain;padding:8px;box-sizing:border-box}.rail-footer{flex:0 0 31px;height:31px;min-height:31px;overflow:hidden;margin-top:7px;border-top:1px solid var(--cp-border);padding:8px 8px 0;text-align:center;font-size:calc(10px * var(--cp-font-scale));line-height:14px;white-space:nowrap;color:var(--cp-text-muted)}.rail-footer b{color:var(--cp-accent)}
@@ -1183,6 +1184,8 @@ html[data-theme="dark"] .atlas-type{box-shadow:inset 0 1px 0 rgba(255,255,255,.0
 .atlas-type:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.08)}
 .atlas-type.skill{border-left:4px solid var(--cp-skill)}
 .atlas-type.mcp{border-left:4px solid var(--cp-mcp)}
+.atlas-type.locked{cursor:default}
+.atlas-type.locked:hover{transform:none;box-shadow:var(--cp-shadow-2),inset 0 1px 0 rgba(255,255,255,.6)}
 .atlas-type .ic{font-size:26px}
 .atlas-body{display:flex;flex-direction:column;gap:3px}
 .atlas-top{display:flex;align-items:baseline;gap:8px}
@@ -1559,6 +1562,65 @@ details.mcp-enable-det[open]>summary{border-bottom:1px solid var(--cp-border)}
 .mcp-enable .cp-src a{color:var(--cp-link)}
 .mcp-enable code{font-family:"Cascadia Code",Consolas,monospace;font-size:11px}
 </style>
+<style id="SETUP-css">
+.setup-prereq{display:flex;gap:9px;flex-wrap:wrap;align-items:center;background:var(--cp-surface);border:1px solid var(--cp-border);border-radius:12px;padding:12px 16px;margin:4px 0 10px;box-shadow:var(--cp-shadow)}
+.setup-prereq .pl{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--cp-text-muted);margin-right:2px}
+.setup-prereq .pl2{margin-left:8px;padding-left:10px;border-left:1px solid var(--cp-border)}
+.setup-prereq .pq{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;background:var(--cp-surface-soft);border:1px solid var(--cp-border);border-radius:999px;padding:4px 11px}
+.setup-prereq .pq-note{font-size:11px;font-weight:600;color:var(--cp-text-muted);font-style:italic}
+.setup-prereq-sec{margin:0 0 14px}
+.setup-prereq-inrow{margin:0 0 10px}
+.setup-prereq-inrow .pq{flex:1 1 240px;line-height:1.5;border-radius:10px}
+.setup-prereq-inrow .pq-ic{flex:0 0 auto}
+.setup-prereq .pq-opt{font-weight:600;color:var(--cp-text-muted);background:transparent;border-style:dashed}
+.setup-prereq .pq-opt i{font-style:normal;font-weight:800;color:var(--cp-text-muted);opacity:.85}
+.setup-sec{background:var(--cp-panel);border:1px solid var(--cp-border);border-radius:16px;padding:20px 22px;margin-bottom:20px;box-shadow:var(--cp-shadow)}
+.setup-sec-top{display:flex;align-items:flex-start;gap:13px;margin-bottom:14px}
+.setup-num{width:32px;height:32px;flex:0 0 32px;border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:900;font-size:14px}
+.setup-num.s1{background:linear-gradient(140deg,var(--cp-skill),#0b5c31)}
+.setup-num.s2{background:linear-gradient(140deg,var(--cp-mcp),#075b78)}
+.setup-num.s3{background:linear-gradient(140deg,var(--cp-biz),#5f2a93)}
+.setup-sec-top h2{font-size:17px;font-weight:900;margin:2px 0 3px}
+.setup-sec-top p{font-size:12.5px;color:var(--cp-text-muted);margin:0}
+.setup-badge-mt{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--cp-accent);padding:3px 8px;border-radius:6px;vertical-align:middle;margin-left:4px}
+.setup-mkt-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:2px 0 14px}
+.setup-mkt{display:flex;align-items:center;gap:11px;border:1px solid var(--cp-border);border-radius:12px;padding:10px 13px;background:var(--cp-surface)}
+.setup-mk-ic{width:30px;height:30px;flex:0 0 30px;border-radius:8px;background:var(--cp-skill-soft);color:var(--cp-skill);display:grid;place-items:center;font-weight:900;font-size:12px}
+.setup-mk-body{min-width:0;display:flex;flex-direction:column}
+.setup-mk-name{font-size:12.5px;font-weight:800}
+.setup-mk-url{font-size:11px;color:var(--cp-link);font-family:"Cascadia Code",Consolas,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none}
+.setup-mk-url:hover{text-decoration:underline}
+.setup-mk-tag{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--cp-biz);background:rgba(138,63,209,.12);padding:2px 7px;border-radius:5px;margin-left:auto;flex:0 0 auto}
+.setup-dedupe{display:flex;gap:8px;align-items:flex-start;background:var(--cp-skill-soft);border:1px solid rgba(16,124,65,.28);border-radius:9px;padding:9px 12px;font-size:11.5px;margin:0 0 14px}
+.setup-mode-label{font-size:9.5px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--cp-skill);margin:0;display:flex;align-items:center;gap:7px}
+.setup-nl-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 0 8px}
+.setup-nl{position:relative;background:linear-gradient(135deg,rgba(16,124,65,.06),rgba(10,126,164,.05));border:1px solid var(--cp-border);border-radius:12px;padding:16px 18px;font-size:13.5px;line-height:1.65;color:var(--cp-text)}
+.setup-nl b{color:var(--cp-skill)}
+.setup-nl code{font-family:"Cascadia Code",Consolas,monospace;font-size:12px;background:var(--cp-surface-soft);padding:1px 5px;border-radius:5px}
+.setup-nl-copy{flex:0 0 auto;background:var(--cp-skill);color:#fff;border:0;border-radius:7px;padding:6px 13px;font-size:11px;font-weight:800;cursor:pointer}
+.setup-nl-copy:hover{filter:brightness(1.08)}
+.setup-hint{font-size:11.5px;color:var(--cp-text-muted);margin:10px 2px 0;display:flex;gap:7px}
+.setup-mcp-row{display:block;border:1px solid var(--cp-border);border-radius:12px;padding:13px 15px;background:var(--cp-surface);margin-bottom:10px}
+.setup-mcp-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 3px}
+.setup-mcp-head h3{font-size:14px;font-weight:900;margin:0}
+.setup-mcp-head .mcp-model{flex:0 0 auto}
+.setup-mcp-model{font-size:11px;font-weight:700;color:var(--cp-text-muted);margin-bottom:8px}
+.setup-mcp-steps{margin:0;padding-left:18px;font-size:12px;color:var(--cp-text);line-height:1.75}
+.setup-mcp-steps code{font-family:"Cascadia Code",Consolas,monospace;font-size:11px;background:var(--cp-surface-soft);padding:1px 5px;border-radius:5px;word-break:break-all}
+.setup-xlink{display:inline-block;margin-top:8px;color:var(--cp-link);font-weight:800;font-size:12px;text-decoration:none;border-bottom:1px dashed var(--cp-link)}
+.setup-ind{display:flex;gap:14px;align-items:center;background:linear-gradient(135deg,var(--cp-accent-soft,rgba(177,31,75,.1)),rgba(10,126,164,.07));border:1px solid var(--cp-border);border-radius:12px;padding:15px 18px}
+.setup-ind .big{font-size:28px}
+.setup-ind h3{margin:0 0 3px;font-size:15px;font-weight:900}
+.setup-ind p{margin:0;font-size:12.5px;color:var(--cp-text-muted)}
+.setup-ind .setup-go{margin-left:auto;background:var(--cp-accent);color:#fff;border:0;border-radius:9px;padding:9px 15px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap}
+.setup-verify{background:var(--cp-surface);border:1px dashed var(--cp-border);border-radius:14px;padding:16px 20px;margin-bottom:20px}
+.setup-verify h2{font-size:15px;font-weight:900;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.setup-vrow{display:flex;align-items:center;gap:10px;font-size:12.5px;padding:6px 0;border-bottom:1px dotted var(--cp-border)}
+.setup-vrow:last-child{border-bottom:0}
+.setup-vbox{width:18px;height:18px;flex:0 0 18px;border-radius:5px;border:2px solid var(--cp-skill);display:inline-flex;align-items:center;justify-content:center;color:var(--cp-skill);font-size:10px;font-weight:900;line-height:1}
+.setup-vrow code{font-family:"Cascadia Code",Consolas,monospace;font-size:11px;background:var(--cp-surface-soft);padding:1px 5px;border-radius:5px}
+@media(max-width:700px){.setup-mkt-grid{grid-template-columns:1fr}}
+</style>
 <style id="cp-approachA">.cp-ready{margin:2px 0 12px;padding:10px 12px;border:1px solid var(--cp-border);border-radius:10px;background:var(--cp-surface-soft)}
 .cp-ready-lbl{display:block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--cp-text-muted);margin-bottom:5px}
 .cp-ready-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
@@ -1620,8 +1682,8 @@ details.drawer-sec[open]>summary{background:var(--cp-surface-soft);border-bottom
       <div class="nav-section-label">Foundations &amp; Discovery</div>
       <button data-view="mission"><span class="nav-icon"><img src="assets/home.svg" alt=""></span><span>Mission Control</span></button>
       <button data-view="basics"><span class="nav-icon"><img src="assets/basics.svg" alt=""></span><span>Basics &amp; Paradigm</span></button>
-      <button data-view="how-to-use"><span class="nav-icon"><img src="assets/guide.svg" alt=""></span><span>How to Use</span></button>
-      <button data-view="metro"><span class="nav-icon"><img src="assets/command-center.svg" alt=""></span><span>All Skills Metro</span></button>
+      <button data-view="how-to-use"><span class="nav-icon"><img src="assets/guide.svg" alt=""></span><span>How to use the portal</span></button>
+      <button data-view="setup"><span class="nav-icon"><img src="assets/command-center.svg" alt=""></span><span>Setup</span></button>
 
       <div class="nav-section-label">Roles &amp; Personas</div>
       <button data-view="role-biz"><span class="nav-icon"><img src="assets/role-biz.svg" alt=""></span><span>Business Leaders</span></button>
@@ -1645,6 +1707,9 @@ details.drawer-sec[open]>summary{background:var(--cp-surface-soft);border-bottom
       <button data-view="journeys"><span class="nav-icon"><img src="assets/customer-journeys.svg" alt=""></span><span>Maker Journey</span></button>
       <button data-view="transformation"><span class="nav-icon"><img src="assets/before-after.svg" alt=""></span><span>Before / After</span></button>
       <button data-view="downloads"><span class="nav-icon"><img src="assets/downloads.svg" alt=""></span><span>Downloads</span></button>
+
+      <div class="nav-section-label metro-egg" hidden>✦ Secret</div>
+      <button class="metro-egg" data-view="metro" hidden title="Unlocked easter egg"><span class="nav-icon"><img src="assets/command-center.svg" alt=""></span><span>All Skills Metro</span></button>
     </nav>
     <div class="rail-actions">
       <a id="requestLink" target="_blank" rel="noopener noreferrer"><img src="assets/request-skill.svg" alt=""><span>Request a Skill</span></a>
@@ -1699,7 +1764,7 @@ details.drawer-sec[open]>summary{background:var(--cp-surface-soft);border-bottom
 <nav class="mobile-dock" aria-label="Quick prototype navigation">
   <button data-view="mission">Home</button>
   <button data-view="how-to-use">How</button>
-  <button data-view="metro">Metro</button>
+  <button data-view="setup">Setup</button>
   <button data-view="journeys">Journey</button>
 </nav>
 <div class="drawer-overlay hidden" id="drawerOverlay"></div>
@@ -1800,7 +1865,7 @@ const READY_RECKONER_IDS = new Set(["power-apps","power-automate","power-pages",
 const VIEW_LABELS = Object.fromEntries([
   ["role-biz","Business Leaders"],["role-dev","Pro Developers"],["role-maker","Citizen Makers"],
   ["coe-roles","CoE Team & Roles"],["basics","Skill Basics & Paradigm"],
-  ["mission","Mission Control"],["how-to-use","How to Use"],["metro","All Skills Metro"],
+  ["mission","Mission Control"],["how-to-use","How to use the portal"],["setup","Setup"],["metro","All Skills Metro"],
   ["journeys","Maker Journey"],["transformation","Before / After"],["downloads","Downloads"],
   ...DATA.categories.map(category=>[category.id,category.title])
 ]);
@@ -1993,20 +2058,23 @@ function renderRefGroups(agentPage=false){
 }
 function typeAtlasHtml(){
   const mc=mcpCount(), s=skillCount(), rc=refCount();
+  const j=metroUnlocked();
+  const jump=t=>j?` data-type-jump="${t}"`:"";
+  const lk=j?"":" locked";
   return `<section class="home-atlas">
     <div class="home-atlas-h">Capability atlas · ${DATA.skills.length} total across three tiers &amp; ${lifecycleStagesLabel()}</div>
     <div class="atlas-types">
-      <button class="atlas-type skill" data-type-jump="Skill" title="Explore all Skills in the Metro map">
+      <button class="atlas-type skill${lk}"${jump('Skill')} title="${j?'Explore all Skills in the Metro map':'Skills — install &amp; run'}"${j?'':' aria-disabled="true"'}>
         <span class="atlas-ic skill">${tierIcon('skill')}</span>
         <span class="atlas-body"><span class="atlas-top"><span class="n">${s}</span><span class="lbl">Skills</span></span>
         <span class="sub">Install &amp; run — packaged, deterministic recipes</span></span>
       </button>
-      <button class="atlas-type mcp" data-type-jump="MCP" title="Explore all MCP capabilities in the Metro map">
+      <button class="atlas-type mcp${lk}"${jump('MCP')} title="${j?'Explore all MCP capabilities in the Metro map':'MCP capabilities'}"${j?'':' aria-disabled="true"'}>
         <span class="atlas-ic mcp">${tierIcon('mcp')}</span>
         <span class="atlas-body"><span class="atlas-top"><span class="n">${mc}</span><span class="lbl">MCP capabilities</span></span>
         <span class="sub">Use live via an MCP server during development</span></span>
       </button>
-      <button class="atlas-type reference" data-type-jump="Reference" title="Explore reference &amp; standards">
+      <button class="atlas-type reference${lk}"${jump('Reference')} title="${j?'Explore reference &amp; standards':'Reference &amp; standards'}"${j?'':' aria-disabled="true"'}>
         <span class="atlas-ic reference">${tierIcon('reference')}</span>
         <span class="atlas-body"><span class="atlas-top"><span class="n">${rc}</span><span class="lbl">Reference</span></span>
         <span class="sub">Standards &amp; practice — context, not installable</span></span>
@@ -3842,7 +3910,7 @@ function renderHowToUse(){
         <h2>3. Compose Skill Stacks</h2>
         <p>Click <strong>+ Add to Stack</strong> on any skill tile or recipe. The bottom tray aggregates your tools and generates a complete multi-agent workflow prompt.</p>
       </div>
-      <button class="mini-skill" data-go="metro" style="margin-top:14px;padding:6px 10px;font-size:11px"><strong>Browse Metro Map</strong> <span>All Skills &rarr;</span></button>
+
     </article>
 
     <article class="how-step" style="display:flex;flex-direction:column;justify-content:space-between">
@@ -3924,6 +3992,96 @@ function renderHowToUse(){
         <button class="top-button" id="openShortcutsFromHow" style="height:28px;font-size:10.5px;padding:0 10px;border-radius:6px">View All Shortcuts &rarr;</button>
       </div>
     </div>
+  </section>`;
+}
+function renderSetup(){
+  const nlPrompt="Install all Microsoft Power Platform skill plugins for me. Add these marketplaces and install every skill plugin from each (skills only, no MCP setup), installing the shared dataverse plugin only once: microsoft/power-cat-skills, microsoft/Dataverse-skills, microsoft/power-platform-skills, microsoft/copilot-studio-plugin. Then make sure every installed plugin is updated to its latest version.";
+  const markets=[
+    {ab:"PC",name:"Power CAT Skills",url:"github.com/microsoft/power-cat-skills"},
+    {ab:"DV",name:"Dataverse Skills",url:"github.com/microsoft/Dataverse-skills"},
+    {ab:"PP",name:"Power Platform Skills",url:"github.com/microsoft/power-platform-skills"},
+    {ab:"CS",name:"Copilot Studio Plugin",url:"github.com/microsoft/copilot-studio-plugin"}
+  ];
+  const marketCards=markets.map(m=>`<div class="setup-mkt"><span class="setup-mk-ic">${m.ab}</span><span class="setup-mk-body"><span class="setup-mk-name">${escapeHtml(m.name)}</span><a class="setup-mk-url" href="https://${m.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(m.url)}</a></span><span class="setup-mk-tag" title="MIT licensed">MIT</span></div>`).join("");
+  const mcpTitles={dataverse:"Dataverse MCP",canvas:"Canvas / Power Apps MCP",flowagent:"FlowAgent · Power Automate MCP"};
+  const mcpPrereqIcon={dataverse:"\u{1F511}",canvas:"\u{1F3A8}",flowagent:"\u2601\uFE0F"};
+  const servers=(MCP_ENABLE&&MCP_ENABLE.servers)||{};
+  const mcpRows=Object.keys(servers).map(key=>{
+    const s=servers[key];
+    const steps=(s.steps||[]).map(t=>`<li>${escapeHtml(t)}</li>`).join("");
+    return `<div class="setup-mcp-row">
+      <div class="setup-mcp-head">
+        <h3>${escapeHtml(mcpTitles[key]||key)}</h3>
+        <span class="mcp-model ${escapeHtml(s.modelClass||"")}" title="${escapeHtml(s.model||"")}">${escapeHtml(s.model||"")}</span>
+      </div>
+      <div class="setup-mcp-model">${escapeHtml(s.modelLabel||"")} &middot; ${escapeHtml(s.who||"")}</div>
+      ${s.prereq?`<div class="setup-prereq setup-prereq-inrow"><span class="pl">Prerequisites</span><span class="pq"><span class="pq-ic">${mcpPrereqIcon[key]||"\u{1F527}"}</span> ${escapeHtml(s.prereq)}</span></div>`:""}
+      <ol class="setup-mcp-steps">${steps}</ol>
+      <a class="setup-xlink" href="#mcp-tooling--${encodeURIComponent(key)}--enable">See full enable steps in the MCP Hub &rarr;</a>
+    </div>`;
+  }).join("");
+  const nlDisplay="Install all Microsoft Power Platform skill plugins for me. Add these marketplaces and install every skill plugin from each (<b>skills only, no MCP setup</b>), installing the <b>shared dataverse plugin only once</b>: <code>microsoft/power-cat-skills</code>, <code>microsoft/Dataverse-skills</code>, <code>microsoft/power-platform-skills</code>, <code>microsoft/copilot-studio-plugin</code>. Then <b>make sure every installed plugin is updated to its latest version</b>.";
+  return `${viewHead("Zero to ready &middot; one reference spot","Setup: Install and Enable Everything","The single place to install the full Power Platform skills catalog and enable live MCP tooling in your AI host (GitHub Copilot CLI or Claude Code). Prefer just one skill? Jump to section 3.")}
+
+  <section class="setup-sec">
+    <div class="setup-sec-top">
+      <div class="setup-num s1">1</div>
+      <div>
+        <h2>Install all skills &mdash; 4 Microsoft marketplaces <span class="setup-badge-mt">MIT licensed</span></h2>
+        <p>Paste one natural-language prompt into your AI host. It adds each marketplace and installs every skill plugin for you.</p>
+      </div>
+    </div>
+    <div class="setup-prereq setup-prereq-sec">
+      <span class="pl">Prerequisites</span>
+      <span class="pq">&#128187; An AI host: GitHub Copilot CLI or Claude Code</span>
+    </div>
+    <div class="setup-mkt-grid">${marketCards}</div>
+    <div class="setup-dedupe">&#9851; <span><b>Shared Dataverse plugin is installed only once.</b> More than one marketplace references the same <code>dataverse</code> plugin; your host installs it a single time to avoid loading its skills twice.</span></div>
+    <div class="setup-nl-head">
+      <div class="setup-mode-label">&#128172; Paste this prompt into your AI host</div>
+      <button class="setup-nl-copy" data-copy-cmd="${escapeHtml(nlPrompt)}" title="Copy the install prompt">&#9112; Copy prompt</button>
+    </div>
+    <div class="setup-nl">
+      ${nlDisplay}
+    </div>
+    <div class="setup-hint">&#8505;&#65039; <span>Natural language keeps this portable &mdash; your host translates the intent into the correct, current <code>/plugin</code> commands at run time.</span></div>
+  </section>
+
+  <section class="setup-sec">
+    <div class="setup-sec-top">
+      <div class="setup-num s2">2</div>
+      <div>
+        <h2>Enable all MCP servers</h2>
+        <p>MCPs can't be enabled by one command &mdash; each has its own model. The colour chip shows who enables it; open the MCP Hub for the full, source-backed steps.</p>
+      </div>
+    </div>
+    ${mcpRows}
+  </section>
+
+  <section class="setup-sec">
+    <div class="setup-sec-top">
+      <div class="setup-num s3">3</div>
+      <div>
+        <h2>Just want one skill?</h2>
+        <p>Every skill has its own install command and prerequisites in its drawer.</p>
+      </div>
+    </div>
+    <div class="setup-ind">
+      <span class="big">&#128451;&#65039;</span>
+      <div>
+        <h3>Install individual skills from their drawer</h3>
+        <p>Open any skill from a product page or global search (<kbd>Ctrl</kbd>+<kbd>K</kbd>) &mdash; the drawer shows its exact install command, persona, access and prerequisites. Install only what you need.</p>
+      </div>
+      <button class="setup-go" data-go="mission">Open search &rarr;</button>
+    </div>
+  </section>
+
+  <section class="setup-verify">
+    <h2>&#9989; You're ready when&hellip;</h2>
+    <div class="setup-vrow"><span class="setup-vbox">&#10003;</span> <span>All four marketplaces appear under <code>/plugin marketplace list</code>.</span></div>
+    <div class="setup-vrow"><span class="setup-vbox">&#10003;</span> <span>Your installed skills show in <code>/plugin list</code> (the <code>dataverse</code> plugin appears once).</span></div>
+    <div class="setup-vrow"><span class="setup-vbox">&#10003;</span> <span>Dataverse MCP toggle is ON in PPAC for your environment (if you use it).</span></div>
+    <div class="setup-vrow"><span class="setup-vbox">&#10003;</span> <span>FlowAgent responds after <code>az login</code> and a host restart.</span></div>
   </section>`;
 }
 function renderCategory(){
@@ -4057,7 +4215,8 @@ function render(){
   }
 }
 function renderNow(){
-  const allowed=["role-biz","role-dev","role-maker","coe-roles","basics","mission","how-to-use","metro","journeys","transformation","downloads","mcp-tooling",...CATEGORY_IDS];
+  if(window.__metroRelockPending && state.view!=="metro"){ metroRelock(false); }
+  const allowed=["role-biz","role-dev","role-maker","coe-roles","basics","mission","how-to-use","setup","metro","journeys","transformation","downloads","mcp-tooling",...CATEGORY_IDS];
   if(!allowed.includes(state.view)){
     state.view="mission";
     const h=location.hash.replace("#","");
@@ -4065,11 +4224,15 @@ function renderNow(){
       history.replaceState(null,"","#mission");
     }
   }
+  if(state.view==="metro" && !metroUnlocked()){
+    state.view="mission";
+    if(location.hash==="#metro")history.replaceState(null,"","#mission");
+  }
   if(state.view==="agent-skills"){
     state.activeSurface="all";
     if(location.hash.startsWith("#agent-skills--"))history.replaceState(null,"","#agent-skills");
   }
-  const renderer=state.view==="role-biz"?renderRoleBiz:state.view==="role-dev"?renderRoleDev:state.view==="role-maker"?renderRoleMaker:state.view==="basics"?renderBasics:state.view==="coe-roles"?renderCoERoles:state.view==="mission"?renderMission:state.view==="how-to-use"?renderHowToUse:state.view==="metro"?renderMetro:state.view==="mcp-tooling"?renderMcpHub:state.view==="journeys"?renderJourneys:state.view==="transformation"?renderTransformation:READY_RECKONER_IDS.has(state.view)?renderReadyReckoner:state.view==="downloads"?renderDownloads:renderCategory;
+  const renderer=state.view==="role-biz"?renderRoleBiz:state.view==="role-dev"?renderRoleDev:state.view==="role-maker"?renderRoleMaker:state.view==="basics"?renderBasics:state.view==="coe-roles"?renderCoERoles:state.view==="mission"?renderMission:state.view==="how-to-use"?renderHowToUse:state.view==="setup"?renderSetup:state.view==="metro"?renderMetro:state.view==="mcp-tooling"?renderMcpHub:state.view==="journeys"?renderJourneys:state.view==="transformation"?renderTransformation:READY_RECKONER_IDS.has(state.view)?renderReadyReckoner:state.view==="downloads"?renderDownloads:renderCategory;
   const isSingleSurface = state.activeSurface && state.activeSurface !== "all";
   const viewRoot=document.getElementById("viewRoot");
   viewRoot.className=`view ${CATEGORY_IDS.includes(state.view)?"category-view":""} ${READY_RECKONER_IDS.has(state.view)?"ready-reckoner-view":""} ${state.view==="power-apps"?"power-apps-view":""} ${state.view==="agent-skills"?"agent-skills-view":""} ${isSingleSurface?"single-surface-active":""}`;
@@ -5572,6 +5735,65 @@ window.addEventListener("resize",applyRailPreference);populateFilters();populate
 if("serviceWorker" in navigator && location.protocol.startsWith("http")){
   window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });
 }
+// ===== All Skills Metro easter egg =====
+var metroEggTimer=null;
+function metroTtl(){return (typeof window.METRO_RELOCK_MS==="number"?window.METRO_RELOCK_MS:180000);}
+function metroUnlocked(){try{return localStorage.getItem("skillsPrototypeMetroUnlocked")==="1";}catch(e){return false;}}
+function metroUnlockAt(){try{return parseInt(localStorage.getItem("skillsPrototypeMetroUnlockedAt")||"0",10)||0;}catch(e){return 0;}}
+function revealMetroEgg(){document.querySelectorAll(".metro-egg").forEach(function(el){el.hidden=false;});}
+function scheduleMetroRelock(ms){if(metroEggTimer)clearTimeout(metroEggTimer);metroEggTimer=setTimeout(fireMetroRelock,Math.max(0,ms));}
+function fireMetroRelock(){
+  // Option C: fixed 3 min from unlock, but if the user is viewing metro, wait until they leave.
+  if(typeof state!=="undefined" && state.view==="metro"){ window.__metroRelockPending=true; }
+  else { metroRelock(true); }
+}
+function metroRelock(rerender){
+  window.__metroRelockPending=false;
+  if(metroEggTimer){clearTimeout(metroEggTimer);metroEggTimer=null;}
+  try{localStorage.removeItem("skillsPrototypeMetroUnlocked");localStorage.removeItem("skillsPrototypeMetroUnlockedAt");}catch(e){}
+  document.querySelectorAll(".metro-egg").forEach(function(el){el.hidden=true;});
+  if(rerender&&typeof renderNow==="function"){try{renderNow();}catch(e){}}
+}
+function unlockMetro(goThere){
+  var was=metroUnlocked();
+  try{localStorage.setItem("skillsPrototypeMetroUnlocked","1");}catch(e){}
+  if(!was){ try{localStorage.setItem("skillsPrototypeMetroUnlockedAt",String(Date.now()));}catch(e){} }
+  revealMetroEgg();
+  if(typeof renderNow==="function"){try{renderNow();}catch(e){}}
+  if(!was){ try{TELEMETRY.track("easter_egg_unlock",{egg:"metro"});}catch(e){} showToast("\u{1F389} Easter egg unlocked \u2014 All Skills Metro added (hides itself after 3 min)"); }
+  var at=metroUnlockAt()||Date.now();
+  scheduleMetroRelock(metroTtl()-(Date.now()-at));
+  if(goThere)navigate("metro");
+}
+(function initMetroEgg(){
+  if(metroUnlocked()){
+    var at=metroUnlockAt();
+    if(!at){ at=Date.now(); try{localStorage.setItem("skillsPrototypeMetroUnlockedAt",String(at));}catch(e){} }
+    var remaining=metroTtl()-(Date.now()-at);
+    if(remaining<=0){ metroRelock(false); }
+    else { revealMetroEgg(); scheduleMetroRelock(remaining); }
+  }
+  // Trigger 1: Konami code (ignores typing in inputs)
+  var seq=["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"], pos=0;
+  window.addEventListener("keydown",function(e){
+    var t=e.target;
+    if(t&&(t.tagName==="INPUT"||t.tagName==="TEXTAREA"||t.isContentEditable))return;
+    var k=e.key.length===1?e.key.toLowerCase():e.key;
+    if(k===seq[pos]){ pos++; if(pos===seq.length){ pos=0; unlockMetro(true); } }
+    else { pos=(k===seq[0])?1:0; }
+  });
+  // Trigger 2: brand-paw click streak (7 within 3s) - touch-friendly
+  var paw=document.querySelector(".brand-paw"); var clicks=0, timer=null;
+  if(paw){
+    paw.style.cursor="pointer";
+    paw.addEventListener("click",function(){
+      clicks++;
+      if(timer)clearTimeout(timer);
+      timer=setTimeout(function(){clicks=0;},3000);
+      if(clicks>=7){ clicks=0; if(timer)clearTimeout(timer); unlockMetro(true); }
+    });
+  }
+})();
 const initialHash=parseHash();
 state.view=initialHash.view||"mission";
 state.activeSurface=initialHash.surface||"all";
