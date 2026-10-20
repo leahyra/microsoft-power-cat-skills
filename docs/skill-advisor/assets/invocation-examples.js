@@ -301,3 +301,58 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Copilot Studio Plugin preview skill: work in progress, supported through GitHub Issues. Requires the installed plugin and PAC CLI 2.9.3 or later. It updates draft content only; publish separately. Illustrative skill-name mention, not documented slash syntax."
   }
 });
+
+// Approved pcf plugin skills (20 Oct 2026), pinned to power-platform-skills 336c9c5f.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-154": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/pcf/skills/pcf",
+    "skillName": "pcf",
+    "userInvocable": true,
+    "natural": {
+      "text": "Create a PCF star rating control for a model-driven form",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/336c9c5f14f1cb0aef30b4f61cbedf3c06e1a213/plugins/pcf/README.md#L49"
+    },
+    "direct": {
+      "text": "/pcf",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/336c9c5f14f1cb0aef30b4f61cbedf3c06e1a213/plugins/pcf/README.md#L37"
+    },
+    "note": "Power Platform Skills pcf plugin (Preview). Requires a compatible installed host and the pcf plugin. The repository documents /pcf (or the namespaced /pcf:pcf). Deploy uses pac pcf push with an explicit environment and recorded consent."
+  },
+  "skill-155": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/pcf/skills/report-issue",
+    "skillName": "report-issue",
+    "userInvocable": true,
+    "natural": {
+      "text": "Report a bug in the pcf plugin",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/336c9c5f14f1cb0aef30b4f61cbedf3c06e1a213/plugins/pcf/skills/report-issue/SKILL.md#L4"
+    },
+    "direct": {
+      "text": "Use report-issue to report a bug in the pcf plugin.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/336c9c5f14f1cb0aef30b4f61cbedf3c06e1a213/plugins/pcf/skills/report-issue/SKILL.md#L2"
+    },
+    "note": "Power Platform Skills pcf plugin (Preview). Requires a compatible installed host and the pcf plugin. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-156": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/pcf/skills/telemetry",
+    "skillName": "telemetry",
+    "userInvocable": true,
+    "natural": {
+      "text": "Turn off telemetry",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/336c9c5f14f1cb0aef30b4f61cbedf3c06e1a213/plugins/pcf/skills/telemetry/SKILL.md#L6"
+    },
+    "direct": {
+      "text": "/pcf:telemetry status",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/336c9c5f14f1cb0aef30b4f61cbedf3c06e1a213/plugins/pcf/README.md#L146"
+    },
+    "note": "Power Platform Skills pcf plugin (Preview). Requires a compatible installed host and the pcf plugin. The repository documents /pcf:telemetry on | off | status; telemetry is default-on and the opt-out stays local."
+  }
+});
