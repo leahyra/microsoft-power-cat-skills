@@ -356,3 +356,93 @@ Object.assign(INVOCATION_EXAMPLES, {
     "note": "Power Platform Skills pcf plugin (Preview). Requires a compatible installed host and the pcf plugin. The repository documents /pcf:telemetry on | off | status; telemetry is default-on and the opt-out stays local."
   }
 });
+
+// Approved 26 Oct 2026 additions, pinned to power-platform-skills ea1e2e75 / power-cat-skills 0ddf6a5a.
+// skill-159 author-webpage-content is model-only (user-invocable: false) and intentionally has no examples.
+Object.assign(INVOCATION_EXAMPLES, {
+  "skill-157": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/edit-site",
+    "skillName": "edit-site",
+    "userInvocable": true,
+    "natural": {
+      "text": "Turn this downloaded Event Portal into our developer conference site",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/ea1e2e7518e241617475a567068a270c1a40db52/plugins/power-pages/README.md#L91"
+    },
+    "direct": {
+      "text": "/edit-site",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/ea1e2e7518e241617475a567068a270c1a40db52/plugins/power-pages/README.md#L89"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. For PAC CLI-downloaded non-SPA sites only; not for React, Angular, Vue or Astro SPA sites."
+  },
+  "skill-158": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-pages/skills/analyze-performance",
+    "skillName": "analyze-performance",
+    "userInvocable": true,
+    "natural": {
+      "text": "Check my site for performance anti-patterns",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/ea1e2e7518e241617475a567068a270c1a40db52/plugins/power-pages/README.md#L530"
+    },
+    "direct": {
+      "text": "/analyze-performance",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/ea1e2e7518e241617475a567068a270c1a40db52/plugins/power-pages/README.md#L528"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Supports non-SPA sites; SPA projects with powerpages.config.json are rejected. Auto-fixes need per-finding approval."
+  },
+  "skill-160": {
+    "source": "https://github.com/microsoft/power-platform-skills/tree/main/plugins/power-apps-mobile-extension/skills/telemetry",
+    "skillName": "telemetry",
+    "userInvocable": true,
+    "natural": {
+      "text": "Turn off telemetry",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/ea1e2e7518e241617475a567068a270c1a40db52/plugins/power-apps-mobile-extension/skills/telemetry/SKILL.md#L3"
+    },
+    "direct": {
+      "text": "/power-apps-mobile-extension:telemetry status",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-platform-skills/blob/ea1e2e7518e241617475a567068a270c1a40db52/plugins/power-apps-mobile-extension/README.md#L13"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents /power-apps-mobile-extension:telemetry on | off | status. Opt-out stops transmission only; local diagnostic logs continue."
+  },
+  "skill-161": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/powercat-governance/skills/dev-environment-deprecation-report",
+    "skillName": "dev-environment-deprecation-report",
+    "userInvocable": true,
+    "natural": {
+      "text": "How many days until developer environments are suspended?",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/0ddf6a5a7859ba98b84a3adccf6e9d1a92c18aee/plugins/powercat-governance/skills/dev-environment-deprecation-report/SKILL.md#L28"
+    },
+    "direct": {
+      "text": "Use dev-environment-deprecation-report to report which developer environments will be suspended.",
+      "kind": "mention",
+      "provenance": "Illustrative intent",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/0ddf6a5a7859ba98b84a3adccf6e9d1a92c18aee/plugins/powercat-governance/skills/dev-environment-deprecation-report/SKILL.md#L2"
+    },
+    "note": "Requires a compatible installed host and plugin. Preview. Needs Power Platform admin rights and the Power Platform for Admins connectors. Illustrative skill-name mention, not documented slash syntax."
+  },
+  "skill-162": {
+    "source": "https://github.com/microsoft/power-cat-skills/tree/main/plugins/loop-my-prompt/skills/loop-my-prompt",
+    "skillName": "loop-my-prompt",
+    "userInvocable": true,
+    "natural": {
+      "text": "Rewrite this prompt with a concrete feedback loop: [paste prompt].",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/0ddf6a5a7859ba98b84a3adccf6e9d1a92c18aee/plugins/loop-my-prompt/README.md#L13"
+    },
+    "direct": {
+      "text": "/loop-my-prompt",
+      "kind": "slash",
+      "provenance": "Repository example",
+      "url": "https://github.com/microsoft/power-cat-skills/blob/0ddf6a5a7859ba98b84a3adccf6e9d1a92c18aee/plugins/loop-my-prompt/README.md#L11"
+    },
+    "note": "Requires a compatible installed host and plugin. The repository documents this slash token. Instruction-only: it rewrites the prompt and does not run the task inside it."
+  }
+});
